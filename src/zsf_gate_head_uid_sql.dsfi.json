@@ -1,0 +1,14 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Implementation for Sclara function UID",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "scalarFunctionName": "ZSF_GATE_HEAD_UID",
+  "engine": "sqlEngine",
+  "sqlProperties": {
+    "amdpReference": "zcl_tab_func=>get_uid",
+    "autoExposedInSqlServices": false
+  }
+}

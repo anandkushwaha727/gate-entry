@@ -1,0 +1,7 @@
+define scalar function ZSF_GATE_HEAD_UID
+  with parameters
+     num : abap.int1
+     //  with reference type [ #NONE ]
+    //parameter2_name: parameter2_type
+  returns abap.int1
+ 

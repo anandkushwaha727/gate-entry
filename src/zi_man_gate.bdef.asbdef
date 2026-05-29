@@ -1,0 +1,20 @@
+unmanaged implementation in class zbp_i_man_gate unique;
+strict ( 1 );
+
+define behavior for ZI_MAN_GATE //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+//create;
+//update;
+//delete;
+  field ( readonly ) SapUuid, Ebeln, Ebelp, Lifnr, Matnr;
+
+  static save (finalize) action  getdata parameter za_man_gate;
+
+  static save (finalize) action  addline parameter za_add_man_gate;
+
+  save (finalize) action (features : instance) cretgate result [1] $self;
+}

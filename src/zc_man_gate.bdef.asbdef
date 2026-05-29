@@ -1,0 +1,10 @@
+projection;
+strict ( 1 );
+
+define behavior for ZC_MAN_GATE //alias <alias_name>
+{
+
+  use action getdata;
+  use action addline;
+  use action cretgate;
+}

@@ -1,0 +1,14 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Implementation for Sclara function Date",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "scalarFunctionName": "ZSF_GATE_HEAD_DATE",
+  "engine": "sqlEngine",
+  "sqlProperties": {
+    "amdpReference": "zcl_tab_func=>comp_time",
+    "autoExposedInSqlServices": false
+  }
+}

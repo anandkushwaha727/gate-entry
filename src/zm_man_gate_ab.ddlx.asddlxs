@@ -1,0 +1,36 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZA_MAN_GATE with
+{
+  @EndUserText.label: 'Invoice No'
+  xblnr;
+  @EndUserText.label: 'Invoice Date'
+  zxdat;
+  @EndUserText.label: 'Vehicle No'
+  vehno;
+  @EndUserText.label: 'Purchase Order'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_PORD_F4', element: 'porder' },
+    distinctValues: true,
+    useForValidation: true,
+    additionalBinding: [{ localElement: 'vendor', element: 'supplier' },
+                        { localElement: 'product', element: 'material' }]}]
+  @Consumption.filter.multipleSelections: true
+  puord;
+  @EndUserText.label: 'Schedule Agmt'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_SCHD_F4', element: 'orderno' },
+    distinctValues: true,
+    useForValidation: true,
+    additionalBinding: [{ localElement: 'vendor', element: 'supplier' },
+                        { localElement: 'product', element: 'material' }]}]
+  @Consumption.filter.multipleSelections: true
+  schag;
+  @EndUserText.label: 'Supplier'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_VEND_F4', element: 'Supplier' }}]
+  vendor;
+  @EndUserText.label: 'Material'
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'ZI_MAT_F4', element: 'Product' }}]
+  @Consumption.filter.multipleSelections: true
+  product;
+  @EndUserText.label: 'Quantity'
+  menge;
+
+}

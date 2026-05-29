@@ -1,0 +1,108 @@
+@Metadata.layer: #CUSTOMER
+@UI:{headerInfo: { typeName: 'Item Detail',
+                   typeNamePlural: 'Item Details',
+                   title: { type: #STANDARD, value: 'ebeln' },
+                   description: { type: #STANDARD, value: 'maktx' } } }
+annotate entity ZC_GATE_ITEM with
+{
+  @UI.facet: [
+        {
+          label: 'Item Details',
+          id: 'ItemInfo',
+          type: #COLLECTION,
+          position: 10
+        },
+        {
+          label: 'Gate Entry',
+          id: 'Gate',
+          type: #IDENTIFICATION_REFERENCE,
+          purpose: #STANDARD,
+          parentId: 'ItemInfo',
+          position: 10
+        }
+
+    ]
+    
+  @UI.lineItem: [{ position : 10, criticality: 'criticality', criticalityRepresentation: #WITH_ICON }]
+  @UI.identification: [{ position : 10, criticality: 'criticality', criticalityRepresentation: #WITH_ICON, label :'ID' }]
+  @UI.hidden: true
+  @EndUserText.label: 'ID'
+  xicon;
+  @UI.lineItem: [{ position : 20 }]
+  @UI.identification: [{ position : 20, label : 'Message' }]
+  @UI.hidden: true
+  @EndUserText.label: 'Message'
+  ztext;
+  @UI.lineItem: [{ position : 30 }]
+  @UI.identification: [{ position : 30, label : 'Gate Entry' }]
+  @UI.hidden: true
+  @EndUserText.label: 'Gate Entry'
+  zrgno;
+  @UI.lineItem: [{ position : 40 }]
+  @UI.identification: [{ position: 40, label: 'Order No' }]
+  @EndUserText.label: 'Order No'
+  ebeln;
+  @UI.lineItem: [{ position : 50}]
+  @UI.identification: [{ position: 50, label: 'Item' }]
+  @EndUserText.label: 'Item'
+  ebelp;
+  @UI.lineItem: [{ position : 60}]
+  @UI.identification: [{ position: 60, label: 'Plant' }]
+  @EndUserText.label: 'Plant'
+  werks;
+  @UI.lineItem: [{ position : 70}]
+  @UI.identification: [{ position: 70, label: 'Str Loc' }]
+  @EndUserText.label: 'Str Loc'
+  lgort;
+  @UI.lineItem: [{ position : 80}]
+  @UI.identification: [{ position: 80, label: 'Material' }]
+  @EndUserText.label: 'Material'
+  matnr;
+  @UI.lineItem: [{ position : 90}]
+  @UI.identification: [{ position: 90, label: 'Description' }]
+  @EndUserText.label: 'Description'
+  maktx;
+  @UI.lineItem: [{ position : 100}]
+  @UI.identification: [{ position: 100, label: 'Open Qty' }]
+  @EndUserText.label: 'Open Qty'
+  opqty;
+  @UI.lineItem: [{ position : 110}]
+  @UI.identification: [{ position: 110, label: 'Inv Qty' }]
+  @EndUserText.label: 'Inv Qty'
+  menge;
+  @UI.lineItem: [{ position : 120}]
+  @UI.identification: [{ position: 120, label: 'UoM' }]
+  @EndUserText.label: 'UoM'
+  meins;
+  @UI.lineItem: [{ position : 130}]
+  @UI.identification: [{ position: 130, label: 'Currency' }]
+  @EndUserText.label: 'Currency'
+  waers;
+  @UI.lineItem: [{ position : 140}]
+  @UI.identification: [{ position: 140, label: 'PO Rate' }]
+  @EndUserText.label: 'PO Rate'
+  netpr;
+  @UI.lineItem: [{ position : 150}]
+  @UI.identification: [{ position: 150, label: 'Total Amt' }]
+  @EndUserText.label: 'Total Amt'
+  dmbtr;
+  @UI.lineItem: [{ position : 160}]
+  @UI.identification: [{ position: 160, label: 'Invoice No' }]
+  @EndUserText.label: 'Invoice No'
+  xblnr;
+  @UI.lineItem: [{ position : 170}]
+  @UI.identification: [{ position: 170, label: 'Inv Date' }]
+  @EndUserText.label: 'Inv Date'
+  zxdat;
+  @UI.lineItem: [{ position : 180}]
+  @UI.identification: [{ position: 180, label: 'Vehicle No' }]
+  @EndUserText.label: 'Vehicle No'
+  zcarr;
+  @UI.lineItem: [{ position : 190 }]
+  @UI.hidden: true
+  criticality;
+  @UI.lineItem: [{ position : 200, type : #FOR_ACTION, invocationGrouping: #CHANGE_SET }]
+  @UI.hidden: true
+  action;
+
+}

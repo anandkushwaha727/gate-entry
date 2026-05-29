@@ -1,0 +1,18 @@
+projection;
+strict ( 1 );
+
+define behavior for ZC_GATE_HEAD //alias <alias_name>
+{
+  use update;
+
+  use action cretgate;
+
+  use association _item;
+}
+
+define behavior for ZC_GATE_ITEM //alias <alias_name>
+{
+  use update;
+
+  use association _head;
+}

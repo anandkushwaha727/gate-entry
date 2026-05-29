@@ -1,0 +1,5 @@
+define scalar function ZSF_GATE_HEAD_DATE
+  with parameters
+    table_time: abap.tims,
+    system_time: abap.tims
+  returns abap.char( 1 )

@@ -1,0 +1,12 @@
+@EndUserText.label: 'Service Defination'
+@ObjectModel: {leadingEntity: { name: 'ZC_GATE_HEAD' }}
+define service ZSD_MAN_GATE {
+  expose ZC_GATE_HEAD;
+  expose ZC_GATE_ITEM;
+  expose ZI_PDET_HEAD;
+  expose ZI_PDET_ITEM;
+  expose ZI_MAT_F4;
+  expose ZI_PORD_F4;
+  expose ZI_SCHD_F4;
+  expose ZI_VEND_F4;
+}

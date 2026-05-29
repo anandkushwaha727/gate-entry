@@ -1,0 +1,130 @@
+@Metadata.layer: #CUSTOMER
+@UI:{headerInfo: { typeName: 'Gate Entry - Manual',
+                   typeNamePlural: 'Gate Entry - Manual',
+                   title: { type: #STANDARD, value: 'lname' },
+                   description: { type: #STANDARD, value: 'ebeln' } } }
+annotate entity ZC_GATE_HEAD with
+{
+  @UI.facet: [
+      {
+        id: 'GateEntry',
+        purpose: #HEADER,
+        type: #DATAPOINT_REFERENCE,
+        position: 10,
+        targetQualifier: 'GateEntry'
+      },
+      {
+        label: 'Gate Entry Info',
+        id: 'GeneralInfo',
+        type: #COLLECTION,
+        position: 10
+      },
+      {
+        label: 'Gate Entry',
+        id: 'Gate',
+        type: #IDENTIFICATION_REFERENCE,
+        purpose: #STANDARD,
+        parentId: 'GeneralInfo',
+        position: 10
+      },
+//      {
+//        label: 'Item Details',
+//        id: 'Items',
+//        type: #COLLECTION,
+//        position: 20
+//      },
+      {
+        id: 'iteminfo',
+        purpose: #STANDARD,
+        type: #LINEITEM_REFERENCE,
+        label: 'Item Details',
+//        parentId: 'GeneralInfo',
+        position: 30,
+        targetElement: '_item'
+      }
+  ]
+  @UI.lineItem: [{ position : 10, criticality: 'criticality', criticalityRepresentation: #WITH_ICON }]
+  @UI.identification: [{ position : 10, criticality: 'criticality', criticalityRepresentation: #WITH_ICON, label :'ID' }]
+  @UI.hidden: true
+  @EndUserText.label: 'ID'
+  xicon;
+  @UI.lineItem: [{ position : 20 }]
+  @UI.identification: [{ position : 20, label : 'Message' }]
+  @UI.dataPoint: { qualifier: 'GateEntry', title: 'Status' }
+  @UI.hidden: true
+  @EndUserText.label: 'Message'
+  ztext;
+  @UI.lineItem: [{ position : 30, importance: #HIGH }]
+  @UI.identification: [{ position : 30, label : 'Gate Entry No' }]
+  @UI.hidden: true
+  @EndUserText.label: 'Gate Entry No'
+  zrgno;
+  @UI.lineItem: [{ position : 40 }]
+  @UI.identification: [{ position : 40, label : 'Purchase Ord No' }]
+  @UI.selectionField: [{ position: 10 }]
+  @Consumption: {
+      valueHelpDefinition: [{ entity: { name: 'ZI_PDET_HEAD', element: 'ebeln' } }]
+  }
+  @Consumption: { filter: { mandatory: true } }
+  @EndUserText.label: 'Purchase Ord No'
+  ebeln;
+  @UI.lineItem: [{ position : 50 }]
+  @UI.identification: [{ position : 50, label : 'Doc Type' }]
+  @EndUserText.label: 'Doc Type'
+  bsart;
+  @UI.lineItem: [{ position : 60 }]
+  @UI.identification: [{ position : 60, label : 'Vendor No' }]
+  @EndUserText.label: 'Vendor No'
+  lifnr;
+  @UI.lineItem: [{ position : 70 }]
+  @UI.identification: [{ position : 70, label : 'Name' }]
+  @EndUserText.label: 'Name'
+  lname;
+  @UI.lineItem: [{ position : 80 }]
+  @UI.identification: [{ position : 80, label : 'Comp Code' }]
+  @EndUserText.label: 'Comp Code'
+  bukrs;
+  //@UI.lineItem: [{ position : 90 }]
+  @UI.identification: [{ position : 90, label : 'Invoice No' }]
+  @EndUserText.label: 'Invoice No'
+  xblnr;
+  //@UI.lineItem: [{ position : 100 }]
+  @UI.identification: [{ position : 100, label : 'Inv Date' }]
+  @EndUserText.label: 'Inv Date'
+  zxdat;
+//  @UI.lineItem: [{ position : 110 }]
+  @UI.identification: [{ position : 110, label : 'Created By' }]
+  @UI.dataPoint: { qualifier: 'User', title: 'User ID' }
+  @EndUserText.label: 'Created By'
+  ernam;
+  @UI.lineItem: [{ position : 120 }]
+  @UI.identification: [{ position : 120, label : 'Posting Date' }]
+  @EndUserText.label: 'Posting Date'
+  erdat;
+//  @UI.lineItem: [{ position : 130 }]
+  @UI.identification: [{ position : 130, label : 'Posting Time' }]
+  @UI.hidden: true
+  @EndUserText.label: 'Posting Time'
+  erzet;
+  @UI.lineItem: [{ position : 140 }]
+  @UI.identification: [{ position : 140, label : 'Category' }]
+  @EndUserText.label: 'Category'
+  zgcat;
+//  @UI.lineItem: [{ position : 150 }]
+  @UI.identification: [{ position : 150, label : 'Vehicle No' }]
+  @EndUserText.label: 'Vehicle No'
+  zcarr;
+  @UI.lineItem: [{ position : 160 }]
+  @UI.identification: [{ position : 160, label : 'Direction' }]
+  @EndUserText.label: 'Dir'
+  zmdir;
+  @UI.lineItem: [{ position : 170 }]
+  @UI.hidden: true
+  criticality;
+  @UI.lineItem: [{ position : 180 }]
+  @UI.lineItem: [{ type : #FOR_ACTION, dataAction: 'cretgate', label:'Create Gate Entry', invocationGrouping: #CHANGE_SET }]
+  @UI.identification: [{ position: 180, dataAction: 'cretgate', label:'Create Gate Entry', type : #FOR_ACTION, invocationGrouping: #CHANGE_SET }]
+  @UI.hidden: true
+  @EndUserText.label: 'Col for Button'
+  action;
+}

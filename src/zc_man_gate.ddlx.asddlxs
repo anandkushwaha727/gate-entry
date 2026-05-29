@@ -1,0 +1,156 @@
+@Metadata.layer: #CUSTOMER
+@UI:{headerInfo: { typeName: 'Gate Entry - Manual',
+                   typeNamePlural: 'Gate Entry - Manual',
+                   title: { type: #STANDARD, value: 'vname' } } }
+annotate entity ZC_MAN_GATE with
+{
+
+    @UI.facet: [
+        {
+          id: 'GateEntry',
+          purpose: #HEADER,
+          type: #DATAPOINT_REFERENCE,
+          position: 10,
+          targetQualifier: 'GateEntry'
+        },
+        {
+          label: 'Gate Entry Info',
+          id: 'GeneralInfo',
+          type: #COLLECTION,
+          position: 10
+        },
+        {
+          label: 'Gate Entry',
+          id: 'Gate',
+          type: #IDENTIFICATION_REFERENCE,
+          purpose: #STANDARD,
+          parentId: 'GeneralInfo',
+          position: 10
+        },
+        {
+          id: 'InvInfo',
+          purpose: #STANDARD,
+          type: #FIELDGROUP_REFERENCE,
+          parentId: 'GeneralInfo',
+          label: 'Invoice Info',
+          position: 30,
+          targetQualifier: 'InvInfo'
+        }
+  ]
+  @UI.lineItem: [{ position : 10, criticality: 'criticality', criticalityRepresentation: #WITH_ICON }]
+  @UI.identification: [{ position : 10, criticality: 'criticality', criticalityRepresentation: #WITH_ICON, label :'ID' }]
+  @EndUserText.label: 'ID'
+  xicon;
+  @UI.lineItem: [{ position : 20 }]
+  @UI.identification: [{ position : 20, label : 'Message' }]
+  @UI.dataPoint: { qualifier: 'GateEntry', title: 'Status' }
+  @EndUserText.label: 'Message'
+  Ztext;
+  @UI.lineItem: [{ position : 30, importance: #HIGH }]
+  @UI.identification: [{ position : 30, label : 'Gate Entry No' }]
+  @EndUserText.label: 'Gate Entry No'
+  Zrgno;
+  @UI.lineItem: [{ position : 40 }]
+  @UI.identification: [{ position : 40, label : 'Created By' }]
+  @EndUserText.label: 'Created By'
+  Ernam;
+  @UI.lineItem: [{ position : 50 }]
+  @UI.identification: [{ position : 50, label : 'Posting Date' }]
+  @EndUserText.label: 'Posting Date'
+  Erdat;
+  @UI.lineItem: [{ position : 60 }]
+  @UI.identification: [{ position : 60, label : 'Vendor No' }]
+  @UI.fieldGroup: [ { qualifier: 'InvInfo', position: 10} ]
+  @EndUserText.label: 'Vendor No'
+  Lifnr;
+  @UI.lineItem: [{ position : 70 }]
+  @UI.identification: [{ position : 70, label : 'Name' }]
+  @UI.fieldGroup: [ { qualifier: 'InvInfo', position: 20} ]
+  @EndUserText.label: 'Name'
+  Vname;
+  @UI.lineItem: [{ position : 80 }]
+  @UI.identification: [{ position : 80, label : 'Purchase Ord No' }]
+  @UI.fieldGroup: [ { qualifier: 'InvInfo', position: 80} ]
+  @EndUserText.label: 'Purchase Ord No'
+  Ebeln;
+  @UI.lineItem: [{ position : 90 }]
+  @UI.identification: [{ position : 90, label : 'Item No' }]
+  @UI.fieldGroup: [ { qualifier: 'InvInfo', position: 90} ]
+  @EndUserText.label: 'Item No'
+  Ebelp;
+  @UI.lineItem: [{ position : 100 }]
+  @UI.identification: [{ position : 100, label : 'Invoice No' }]
+  @UI.fieldGroup: [ { qualifier: 'InvInfo', position: 30} ]
+  @EndUserText.label: 'Invoice No'
+  Xblnr;
+  @UI.lineItem: [{ position : 110 }]
+  @UI.identification: [{ position : 110, label : 'Inv Date' }]
+  @UI.fieldGroup: [ { qualifier: 'InvInfo', position: 40} ]
+  @EndUserText.label: 'Inv Date'
+  Zxdat;
+  @UI.lineItem: [{ position : 120 }]
+  @UI.identification: [{ position : 120, label : 'Material' }]
+  @EndUserText.label: 'Material'
+  Matnr;
+  @UI.lineItem: [{ position : 130 }]
+  @UI.identification: [{ position : 130, label : 'Description' }]
+  @UI.fieldGroup: [ { qualifier: 'InvInfo', position: 50} ]
+  @EndUserText.label: 'Description'
+  Txz01;
+  @UI.lineItem: [{ position : 140 }]
+  @UI.identification: [{ position : 140, label : 'Schd Open Qty' }]
+  @EndUserText.label: 'Schd Open Qty'
+  soqty;
+  @UI.lineItem: [{ position : 150 }]
+  @UI.identification: [{ position : 150, label : 'Inv Qty' }]
+  @UI.fieldGroup: [ { qualifier: 'InvInfo', position: 60} ]
+  @EndUserText.label: 'Inv Qty'
+  Lsmng;
+  @UI.lineItem: [{ position : 160 }]
+  @UI.identification: [{ position : 160, label : 'Unit' }]
+  @UI.fieldGroup: [ { qualifier: 'InvInfo', position: 70} ]
+  @EndUserText.label: 'Unit'
+  Lsmeh;
+  @UI.lineItem: [{ position : 170 }]
+  @UI.identification: [{ position : 170, label : 'Comp Code' }]
+  @EndUserText.label: 'Comp Code'
+  Bukrs;
+  @UI.lineItem: [{ position : 180 }]
+  @UI.identification: [{ position : 180, label : 'Plant' }]
+  @EndUserText.label: 'Plant'
+  Werks;
+  @UI.lineItem: [{ position : 190 }]
+  @UI.identification: [{ position : 190, label : 'Str Loc' }]
+  @EndUserText.label: 'Str Loc'
+  Lgort;
+  @UI.lineItem: [{ position : 200 }]
+  @UI.identification: [{ position : 200, label : 'Vend Mat Code' }]
+  @EndUserText.label: 'Vend Mat Code'
+  Kdmat;
+  @UI.lineItem: [{ position : 210 }]
+  @UI.identification: [{ position : 210, label : 'Category' }]
+  @EndUserText.label: 'Category'
+  Zgcat;
+  @UI.lineItem: [{ position : 220 }]
+  @UI.identification: [{ position : 220, label : 'Vehicle No' }]
+  @EndUserText.label: 'Vehicle No'
+  Zcarr;
+  @UI.lineItem: [{ position : 230 }]
+  @UI.identification: [{ position : 230, label : 'Direction' }]
+  @EndUserText.label: 'Dir'
+  Zmdir;
+  @UI.lineItem: [{ position : 240 }]
+  @UI.hidden: true
+  criticality;
+  @UI.lineItem: [{ position : 250 }]
+  @UI.lineItem: [{ type : #FOR_ACTION, dataAction: 'getdata', label:'Enter INV Details', invocationGrouping: #CHANGE_SET },
+  { type : #FOR_ACTION, dataAction: 'addline', label:'Add INV Item', invocationGrouping: #CHANGE_SET },
+  { type : #FOR_ACTION, dataAction: 'cretgate', label:'Create Gate Entry', invocationGrouping: #CHANGE_SET }]
+  @UI.hidden: true
+  @EndUserText.label: 'Col for Button'
+  action;
+  @UI.lineItem: [{ position : 260 }]
+  @UI.hidden: true
+  SapUuid;
+
+}

@@ -1,0 +1,48 @@
+unmanaged implementation in class zbp_i_gate_head unique;
+strict ( 1 );
+//with draft;
+
+define behavior for ZI_GATE_HEAD //alias <alias_name>
+//draft table zdft_gate_head
+//late numbering
+lock master
+authorization master ( instance )
+etag master erdat
+{
+  //internal create;
+  update (features : instance, precheck);
+  //delete;
+
+  //draft action Activate optimized;
+  //draft action AdditionalSave;
+  //draft action Discard;
+  //draft action Edit;
+  //draft action Resume;
+  //draft action Share;
+
+  field ( mandatory ) xblnr, zxdat;
+
+  field ( readonly : update )   ebeln, xicon, zrgno, bukrs, ztext, lifnr, lname, ernam,
+                                erdat, erzet, zgcat, zmdir, criticality, action, bsart;
+
+  association _item;
+
+  save (finalize) action (features : instance, precheck) cretgate result [1] $self;
+
+}
+
+define behavior for ZI_GATE_ITEM //alias <alias_name>
+//late numbering
+//draft table zdft_gate_item
+lock dependent by _head
+authorization dependent by _head
+etag dependent by _head
+{
+  update (features : instance, precheck);
+  //delete;
+  field ( readonly : update) xicon, zrgno, action, ztext, ebeln, ebelp, werks,
+                             lgort, matnr, maktx, meins, criticality, netpr, waers,
+                             xblnr, zxdat, zcarr;
+  association _head;
+
+}
